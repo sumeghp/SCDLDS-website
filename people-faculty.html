@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty - SCDLDS Ashoka University</title>
+    <style>
+        /* Import Inria Sans & Lora fonts from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Lora:wght@400;700&display=swap');
+
+        /* Base Styles */
+        body {
+            font-family: 'Inria Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        main {
+            flex-grow: 1;
+            padding: 50px 0;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background-color: #ffffff;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        /* Page Title & Intro */
+        .page-title {
+            font-family: 'Lora', serif;
+            font-size: 2.5em;
+            color: #003366;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .page-intro {
+            font-size: 1.1em;
+            text-align: center;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+
+        /* People Grid with Text Overlay */
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .person-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .person-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            aspect-ratio: 1 / 1;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .person-card:hover {
+            box-shadow: 0 12px 35px rgba(0, 51, 102, 0.15);
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #003366; /* The navy blue placeholder color */
+            transition: transform 0.4s ease;
+        }
+
+        .person-card:hover .image-placeholder {
+            transform: scale(1.05); /* Subtle zoom effect on hover */
+        }
+
+        .person-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            color: #ffffff;
+            text-align: left;
+            background: linear-gradient(to top, rgba(0, 21, 41, 0.9) 0%, rgba(0, 21, 41, 0) 100%);
+        }
+
+        .person-info h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        /* Footer Styles */
+        .site-footer {
+            background-color: #222;
+            color: #f0f0f0;
+            padding: 50px 0;
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h4{font-family: 'Lora', serif;font-size: 1.2em;font-weight: 700;color: #ffffff;margin-top: 0;margin-bottom: 20px;}
+        .footer-column h4 a{color: #ffffff;text-decoration: none;}.footer-column h4 a:hover{text-decoration: underline;}
+        .footer-column ul{list-style: none;padding: 0;margin: 0;}.footer-column li{margin-bottom: 12px;}
+        .footer-column a{color: #ccc;text-decoration: none;transition: color 0.2s ease;}.footer-column a:hover{color: #ffffff;text-decoration: underline;}
+        .footer-column strong{color: #ffffff;}
+        .footer-social-links{display: flex;gap: 15px;}
+        .footer-social-links a{display: flex;align-items: center;justify-content: center;width: 40px;height: 40px;background-color: #444;color: #ffffff;border-radius: 50%;font-weight: 700;font-size: 1.1em;transition: background-color 0.2s ease, transform 0.2s ease;text-decoration: none;}
+        .footer-social-links a:hover{background-color: #8a1e1e;transform: translateY(-2px);text-decoration: none;}
+
+        /* Responsive Design */
+        @media (max-width: 992px) { .main-nav { display: none; } }
+        @media (max-width: 768px) { .header-container { flex-direction: column; gap: 15px; } }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo"><img src="logo.png" alt="SCDLDS - Ashoka University"></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">Our Faculty</h1>
+            <p class="page-intro">
+                Meet the core faculty members driving the research and academic excellence at the Centre.
+            </p>
+
+            <div class="people-grid">
+                
+                <a href="#" class="person-card-link">
+                    <div class="person-card">
+                        <div class="image-placeholder"></div>
+                        <div class="person-info">
+                            <h3>Anustubh Agnihotri</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="person-card-link">
+                    <div class="person-card">
+                        <div class="image-placeholder"></div>
+                        <div class="person-info">
+                            <h3>Parush Arora</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="person-card-link">
+                    <div class="person-card">
+                        <div class="image-placeholder"></div>
+                        <div class="person-info">
+                            <h3>Debapratim Banerjee</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="person-card-link">
+                    <div class="person-card">
+                        <div class="image-placeholder"></div>
+                        <div class="person-info">
+                            <h3>Dipankar Bhattacharya</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="person-card-link">
+                    <div class="person-card">
+                        <div class="image-placeholder"></div>
+                        <div class="person-info">
+                            <h3>Bhaskar Dutta</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="person-card-link">
+                    <div class="person-card">
+                        <div class="image-placeholder"></div>
+                        <div class="person-info">
+                            <h3>Sandeep Juneja</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="person-card-link">
+                    <div class="person-card">
+                        <div class="image-placeholder"></div>
+                        <div class="person-info">
+                            <h3>Kumarjit Saha</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="person-card-link">
+                    <div class="person-card">
+                        <div class="image-placeholder"></div>
+                        <div class="person-info">
+                            <h3>Aalok Thakkar</h3>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <h4><a href="about.html">About SCDLDS</a></h4>
+                <p style="color: #ccc;">A multidisciplinary hub for research and education in data science, machine learning, artificial intelligence, and decision sciences.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li>
+                    <li><strong>Campus:</strong> Plot No. 2, Rajiv Gandhi Education City, Sonepat, Haryana-131029</li>
+                    <li><strong>Delhi Office:</strong> Plot no.222, Second floor, Okhla Industrial Estate, Phase III, New Delhi-110020</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://www.ashoka.edu.in/" target="_blank">Ashoka University Home</a></li>
+                    <li><a href="careers.html">Career Opportunities</a></li>
+                    <li><a href="research.html">Research Areas</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="footer-social-links">
+                    <a href="https://twitter.com/cdlds_ashoka" title="X (formerly Twitter)" target="_blank">X</a>
+                    <a href="https://www.linkedin.com/company/scdlds-ashoka/" title="LinkedIn" target="_blank">in</a>
+                    <a href="https://www.youtube.com/@cdlds_ashoka" title="YouTube" target="_blank">▶</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

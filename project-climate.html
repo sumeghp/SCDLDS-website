@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimating potential economic damage from climate change in India - SCDLDS Ashoka University</title>
+    <style>
+        /* Import Inria Sans font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+
+        /* Base Styles */
+        body {
+            font-family: 'Inria Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #005a9c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #ffffff;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        /* Main Content Wrapper */
+        .content-wrapper {
+            flex-grow: 1;
+            padding: 30px 0 50px 0;
+        }
+
+        /* Project Detail Page Styles */
+        .project-detail-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+        }
+
+        .page-title {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #003366;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .project-banner-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background-color: #e9ecef;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        
+        .project-content-area {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .project-main-text {
+            flex: 3;
+        }
+        
+        .project-main-text p {
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 1.5em;
+        }
+        
+        .project-sidebar {
+            flex: 1;
+            padding-left: 30px;
+            border-left: 1px solid #e0e0e0;
+        }
+        
+        .sidebar-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-links li {
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-links a {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #8a1e1e;
+        }
+
+        /* Expandable Section Styles */
+        .sidebar-links .expand-trigger {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        
+        .sidebar-links .expand-trigger:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-links .expand-trigger::before {
+            content: '▸';
+            margin-right: 10px;
+            color: #8a1e1e;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-links .expandable.expanded .expand-trigger::before {
+            transform: rotate(90deg);
+        }
+
+        .members-list {
+            list-style: none;
+            padding-left: 25px;
+            margin-top: 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .expandable.expanded .members-list {
+            max-height: 400px;
+        }
+
+        .members-list li {
+            font-size: 1em;
+            font-weight: 400;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        /* --- STYLES FOR THE FOOTER --- */
+        .site-footer {
+            background-color: #222;
+            color: #f0f0f0;
+            padding: 50px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column h4 a {
+            color: #ffffff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #cccccc;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: #ffffff;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.2s;
+        }
+
+        .footer-social-links a:hover {
+            background-color: #8a1e1e;
+            text-decoration: none;
+        }
+        /* --- END OF FOOTER STYLES --- */
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-nav { display: none; }
+            .project-content-area {
+                flex-direction: column;
+            }
+            .project-sidebar {
+                border-left: none;
+                padding-left: 0;
+                margin-top: 30px;
+                border-top: 1px solid #e0e0e0;
+                padding-top: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; }
+            .page-title { font-size: 2em; }
+            .project-banner-image { height: 250px; }
+            .project-detail-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo">
+                <img src="logo.png" alt="SCDLDS - Ashoka University">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="#people">People</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#news">News & Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <div class="container">
+            <div class="project-detail-card">
+                <h1 class="page-title">Estimating potential economic damage from climate change in India</h1>
+    
+                <img class="project-banner-image" src="alt-carbon.png" alt="Banner image for Estimating potential economic damage from climate change in India">
+    
+                <div class="project-content-area">
+                    <div class="project-main-text">
+                        <p>Climate change poses a significant challenge to economies globally, and estimating its potential economic cost is imperative for informed policymaking and designing mitigation strategies. In this project, we leverage high-resolution climate forecasts to evaluate the economic impacts of climate change across Indian districts. To achieve this, we select a subset of models from the CMIP6 ensemble that closely replicate observed climatology in India to ensure an accurate forecast. The scenario-specific forecasts cover temperature and precipitation under various Shared Socioeconomic Pathways (SSPs) and are then used as inputs to a causal inference framework.</p>
+                        <p>We employ cutting-edge causal inference techniques that quantify the relationship between climate variables and economic outcomes, capturing the non-linear and regionally heterogeneous effects of climate change. These functions are grounded in robust empirical research carried out in the Indian context and applied to key impact domains such as agriculture, mortality, labour productivity, and crime.</p>
+                        <p>By combining spatially granular climate projections with impact functions, this approach enables us to construct sector-specific damage estimates at the grid level. These results can then be aggregated to inform state and national-level assessments, providing a foundation for targeted climate policy and resource allocation.</p>
+                    </div>
+                    <aside class="project-sidebar">
+                        <nav class="sidebar-links">
+                            <ul>
+                                <li class="expandable" id="members-section">
+                                    <a class="expand-trigger">Members</a>
+                                    <ul class="members-list">
+                                        <li>Saptarishi Dhanuka</li>
+                                        <li>Mannan Gupta</li>
+                                        <li>Sandeep Juneja</li>
+                                        <li>Atish Kumar</li>
+                                        <li>Parthasarathi Mukhopadhyay</li>
+                                        <li>Manmeet Singh</li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Resources</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <h4><a href="#about">About SCDLDS</a></h4>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li>
+                    <li><strong>Campus:</strong> Plot No. 2, Rajiv Gandhi Education City, Sonepat, Haryana-131029</li>
+                    <li><strong>Delhi Office:</strong> Plot no.222, Second floor, Okhla Industrial Estate, Phase III, New Delhi-110020</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Ashoka University Home</a></li>
+                    <li><a href="#">Research Opportunities</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="footer-social-links">
+                    <a href="https://twitter.com/cdlds_ashoka" title="X" target="_blank">X</a>
+                    <a href="https://www.linkedin.com/company/scdlds-ashoka/" title="LinkedIn" target="_blank">in</a>
+                    <a href="https://www.youtube.com/@cdlds_ashoka" title="YouTube" target="_blank">▶</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const membersSection = document.getElementById('members-section');
+            
+            if (membersSection) {
+                const trigger = membersSection.querySelector('.expand-trigger');
+                trigger.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    membersSection.classList.toggle('expanded');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

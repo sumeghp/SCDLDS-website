@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - SCDLDS Ashoka University</title>
+    <style>
+        /* Import Inria Sans font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+
+        /* Base Styles */
+        body {
+            font-family: 'Inria Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #005a9c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #ffffff;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 50px 0;
+            flex-grow: 1;
+        }
+
+        .page-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #003366;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 60px;
+        }
+        
+        /* People Page Cards */
+        .category-cards-wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Creates a 2-column grid */
+            gap: 40px;
+        }
+        
+        .category-card-link {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #003366; /* Navy Blue Background */
+            border-radius: 12px;
+            padding: 40px 35px;
+            min-height: 180px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.1);
+        }
+
+        .category-card-link:hover {
+            text-decoration: none;
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.2);
+        }
+        
+        .category-card-link h2 {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+        }
+        
+        .card-cta {
+            font-weight: 700;
+            font-size: 1.1em;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 8px 18px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .category-card-link:hover .card-cta {
+            background-color: #ffffff;
+            color: #003366;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #222;
+            color: #f0f0f0;
+            padding: 50px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h4{font-size:1.2em;font-weight:700;color:#fff;margin-top:0;margin-bottom:20px}.footer-column h4 a{color:#fff;text-decoration:none}.footer-column ul{list-style:none;padding:0;margin:0}.footer-column li{margin-bottom:10px}.footer-column a{color:#ccc;transition:color .2s}.footer-column a:hover{color:#fff}.footer-social-links{display:flex;gap:15px}.footer-social-links a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background-color:#444;color:#fff;border-radius:50%;font-weight:700;font-size:1.1em;transition:background-color .2s;text-decoration:none}.footer-social-links a:hover{background-color:#8a1e1e;text-decoration:none}
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-nav { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; }
+            .page-title { font-size: 2em; }
+            .category-cards-wrapper {
+                grid-template-columns: 1fr; /* Stacks cards into a single column */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo">
+                <img src="logo.png" alt="SCDLDS Ashoka University">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="events.html">News & Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">People</h1>
+
+            <div class="category-cards-wrapper">
+                <!-- Card 1: Advisory Board -->
+                <a href="people-advisors.html" class="category-card-link">
+                    <h2>Advisory Board</h2>
+                    <span class="card-cta">View the Board →</span>
+                </a>
+
+                <!-- Card 2: Faculty Members -->
+                <a href="people-faculty.html" class="category-card-link">
+                    <h2>Faculty Members</h2>
+                    <span class="card-cta">View Faculty →</span>
+                </a>
+                
+                <!-- Card 3: Members -->
+                <a href="people_members.html" class="category-card-link">
+                    <h2>Members</h2>
+                    <span class="card-cta">View Members →</span>
+                </a>
+
+                <!-- Card 4: Visitors -->
+                <a href="people-visitors.html" class="category-card-link">
+                    <h2>Visitors</h2>
+                    <span class="card-cta">View Visitors →</span>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column"><h4><a href="#about">About SCDLDS</a></h4></div>
+            <div class="footer-column"><h4>Contact Us</h4><ul><li><strong>Email:</strong> <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li><li><strong>Campus:</strong> Plot No. 2, Rajiv Gandhi Education City, Sonepat, Haryana-131029</li><li><strong>Delhi Office:</strong> Plot no.222, Second floor, Okhla Industrial Estate, Phase III, New Delhi-110020</li></ul></div>
+            <div class="footer-column"><h4>Quick Links</h4><ul><li><a href="#">Ashoka University Home</a></li><li><a href="#">Research Opportunities</a></li><li><a href="#">Courses</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+            <div class="footer-column"><h4>Follow Us</h4><div class="footer-social-links"><a href="https://twitter.com/cdlds_ashoka" title="X" target="_blank">X</a><a href="https://www.linkedin.com/company/scdlds-ashoka/" title="LinkedIn" target="_blank">in</a><a href="https://www.youtube.com/@cdlds_ashoka" title="YouTube" target="_blank">▶</a></div></div>
+        </div>
+    </footer>
+
+</body>
+</html>

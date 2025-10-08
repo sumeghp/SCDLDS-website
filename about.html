@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About SCDLDS - Ashoka University</title>
+    <style>
+        /* Import Inria Sans & a Serif font for headings */
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Lora:wght@400;700&display=swap');
+
+        /* Base Styles */
+        body {
+            font-family: 'Inria Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #005a9c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #ffffff;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+            flex-grow: 1;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.15em;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .page-title {
+            font-family: 'Lora', 'Times New Roman', serif;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #003366;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-content ul li {
+            background-color: #fff;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 3px solid #8a1e1e;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #222;
+            color: #f0f0f0;
+            padding: 50px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h4{font-size:1.2em;font-weight:700;color:#fff;margin-top:0;margin-bottom:20px}.footer-column h4 a{color:#fff;text-decoration:none}.footer-column ul{list-style:none;padding:0;margin:0}.footer-column li{margin-bottom:10px}.footer-column a{color:#ccc;transition:color .2s}.footer-column a:hover{color:#fff}.footer-social-links{display:flex;gap:15px}.footer-social-links a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background-color:#444;color:#fff;border-radius:50%;font-weight:700;font-size:1.1em;transition:background-color .2s;text-decoration:none}.footer-social-links a:hover{background-color:#8a1e1e;text-decoration:none}
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-nav { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; }
+            .page-title { font-size: 2.2em; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo">
+                <img src="logo.png" alt="SCDLDS Ashoka University">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="events.html">News & Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="about-content">
+                <h1 class="page-title">About SCDLDS</h1>
+                <p>
+                    Rapid advancements in data, compute, and algorithms are profoundly transforming our world, and we’re still in the early stages of this data science, machine learning, and AI revolution.
+                </p>
+                <p>
+                    At SCDLDS, we conduct high-level applied and methodological research in data and learning sciences to aid in informed decision-making and address complex societal challenges. Initially, our work is focused on four key areas:
+                </p>
+                <ul>
+                    <li>Data-driven financial research</li>
+                    <li>Weather and climate modeling</li>
+                    <li>Reinforcement learning</li>
+                    <li>Epidemiological modeling</li>
+                </ul>
+                <p>
+                    In addition to our research, we are committed to teaching. We train young minds through engaging coursework and projects, exposing them to a deep and varied mathematical toolkit that helps them uncover hidden patterns in large and complex datasets.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column"><h4><a href="#about">About SCDLDS</a></h4></div>
+            <div class="footer-column"><h4>Contact Us</h4><ul><li><strong>Email:</strong> <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li><li><strong>Campus:</strong> Plot No. 2, Rajiv Gandhi Education City, Sonepat, Haryana-131029</li><li><strong>Delhi Office:</strong> Plot no.222, Second floor, Okhla Industrial Estate, Phase III, New Delhi-110020</li></ul></div>
+            <div class="footer-column"><h4>Quick Links</h4><ul><li><a href="#">Ashoka University Home</a></li><li><a href="#">Research Opportunities</a></li><li><a href="#">Courses</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+            <div class="footer-column"><h4>Follow Us</h4><div class="footer-social-links"><a href="https://twitter.com/cdlds_ashoka" title="X" target="_blank">X</a><a href="https://www.linkedin.com/company/scdlds-ashoka/" title="LinkedIn" target="_blank">in</a><a href="https://www.youtube.com/@cdlds_ashoka" title="YouTube" target="_blank">▶</a></div></div>
+        </div>
+    </footer>
+
+</body>
+</html>

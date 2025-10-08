@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Projects - SCDLDS Ashoka University</title>
+    <style>
+        /* Import Inria Sans font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+
+        /* Base Styles */
+        body {
+            font-family: 'Inria Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #005a9c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #ffffff;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        /* Main Content for Research Projects Page */
+        .main-content {
+            padding: 50px 0;
+            flex-grow: 1; /* Ensures content pushes footer down */
+        }
+
+        .page-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #003366;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+
+        /* Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Styling for the link wrapping the card */
+        .project-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex; /* Make the link a flex container */
+        }
+        .project-card-link:hover {
+            text-decoration: none;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            width: 100%; /* Make card fill the link */
+        }
+
+        .project-card-link:hover .project-card {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #e9ecef;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #8a1e1e;
+        }
+
+        .card-text {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1em;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .card-keywords {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .card-keywords span {
+            display: inline-block;
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* --- STYLES FOR THE FOOTER --- */
+        .site-footer {
+            background-color: #222;
+            color: #f0f0f0;
+            padding: 50px 0;
+            font-size: 0.9em;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column h4 a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #cccccc;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: #ffffff;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.2s;
+            text-decoration: none;
+        }
+
+        .footer-social-links a:hover {
+            background-color: #8a1e1e;
+            text-decoration: none;
+        }
+        /* --- END OF FOOTER STYLES --- */
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-nav { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; }
+            .page-title { font-size: 2em; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo">
+                <img src="logo.png" alt="Safexpress Centre for Data, Learning and Decision Sciences - Ashoka University">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="events.html">News & Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Our Research Projects</h1>
+
+            <div class="projects-grid">
+
+                <!-- Card 1: Financial Mule Detection -->
+                <a href="project_money-mule.html" class="project-card-link">
+                    <div class="project-card">
+                        <img class="card-image" src="https://via.placeholder.com/400x200/B22222/FFFFFF?text=FinTech+and+Security" alt="Financial Mule Detection">
+                        <div class="card-content">
+                            <h3 class="card-title">Financial Mule Detection</h3>
+                            <p class="card-text">Building a deep learning model in collaboration with a large private lender to detect money mules and illicit fund transfers in real-time, tackling severe class imbalance and noisy labels.</p>
+                            <div class="card-footer">
+                                <p class="card-keywords">
+                                    <span>Deep Learning</span> <span>Fraud Detection</span> <span>FinTech</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2: Low-Frequency Trading -->
+                <a href="project-fin_trad.html" class="project-card-link">
+                    <div class="project-card">
+                        <img class="card-image" src="https://via.placeholder.com/400x200/008080/FFFFFF?text=Quantitative+Finance" alt="Low-Frequency Trading Strategies">
+                        <div class="card-content">
+                            <h3 class="card-title">Low-Frequency Trading Strategies</h3>
+                            <p class="card-text">Bringing structure to factor modelling in the Indian equity market by analyzing historical predictors and using deep ML to develop robust, data-driven investment and trading strategies.</p>
+                            <div class="card-footer">
+                                <p class="card-keywords">
+                                    <span>Quantitative Finance</span> <span>Factor Modelling</span> <span>Equity Markets</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3: Economic Damage from Climate Change -->
+                <a href="project-climate.html" class="project-card-link">
+                    <div class="project-card">
+                        <img class="card-image" src="https://via.placeholder.com/400x200/4682B4/FFFFFF?text=Climate+Economics" alt="Economic damage from climate change">
+                        <div class="card-content">
+                            <h3 class="card-title">Estimating Economic Damage from Climate Change in India</h3>
+                            <p class="card-text">Leveraging high-resolution climate forecasts and causal inference techniques to quantify the potential economic costs of climate change on agriculture, mortality, and labor productivity across Indian districts.</p>
+                            <div class="card-footer">
+                                <p class="card-keywords">
+                                    <span>Causal Inference</span> <span>Climate Economics</span> <span>Policy</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4: Weather Modelling -->
+                <a href="project-weather.html" class="project-card-link">
+                    <div class="project-card">
+                        <img class="card-image" src="https://via.placeholder.com/400x200/87CEEB/000000?text=Weather+Forecasting" alt="Weather modelling">
+                        <div class="card-content">
+                            <h3 class="card-title">Weather Modelling</h3>
+                            <p class="card-text">Fine-tuning large, global Machine Learning models (like Graphcast) with local datasets to create a more accurate, efficient, and low-cost weather forecasting system for India.</p>
+                            <div class="card-footer">
+                                <p class="card-keywords">
+                                    <span>Machine Learning</span> <span>Climate Modelling</span> <span>Predictive Analytics</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Card 5: Learning with Diffusion -->
+                <a href="project-diffusion.html" class="project-card-link">
+                    <div class="project-card">
+                        <img class="card-image" src="https://via.placeholder.com/400x200/6A5ACD/FFFFFF?text=Generative+AI+Theory" alt="Learning exponentially twisted distributions">
+                        <div class="card-content">
+                            <h3 class="card-title">Learning Exponentially Twisted Distributions with Diffusion</h3>
+                            <p class="card-text">Developing new training objectives and sampling techniques for diffusion models to learn complex, reweighted distributions, with applications in risk analysis, rare-event simulation, and controlled image generation.</p>
+                            <div class="card-footer">
+                                <p class="card-keywords">
+                                    <span>Generative AI</span> <span>Diffusion Models</span> <span>Foundational ML</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 6: Darjeeling Revival (Clickable) -->
+                <a href="project-darjeeling.html" class="project-card-link">
+                    <div class="project-card">
+                        <img class="card-image" src="alt-carbon.png" alt="Darjeeling Revival Project">
+                        <div class="card-content">
+                            <h3 class="card-title">The Darjeeling Revival Project</h3>
+                            <p class="card-text">An interdisciplinary initiative to enhance natural carbon sequestration and revitalize degraded soils in the Eastern Himalayas using Enhanced Rock Weathering (ERW) and geostatistical modeling.</p>
+                            <div class="card-footer">
+                                <p class="card-keywords">
+                                    <span>Climate Action</span> <span>Carbon Sequestration</span> <span>Geostatistics</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 7: Satellite Mining / Regulation -->
+                <a href="project-satellite-data.html" class="project-card-link">
+                    <div class="project-card">
+                        <img class="card-image" src="https://via.placeholder.com/400x200/A0522D/FFFFFF?text=Regulation+and+Policy" alt="Environmental Regulation in India">
+                        <div class="card-content">
+                            <h3 class="card-title">Political Economy of Environmental Regulation in India</h3>
+                            <p class="card-text">Combining administrative data with high-resolution satellite imagery and ML to examine the effectiveness of environmental regulation, measure ease of doing business, and systematically detect illegal mining activity.</p>
+                            <div class="card-footer">
+                                <p class="card-keywords">
+                                    <span>Environmental Policy</span> <span>Satellite Imagery</span> <span>Regulation</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <h4><a href="#about">About SCDLDS</a></h4>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li>
+                    <li><strong>Campus:</strong> Plot No. 2, Rajiv Gandhi Education City, Sonepat, Haryana-131029</li>
+                    <li><strong>Delhi Office:</strong> Plot no.222, Second floor, Okhla Industrial Estate, Phase III, New Delhi-110020</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Ashoka University Home</a></li>
+                    <li><a href="#">Research Opportunities</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="footer-social-links">
+                    <a href="https://twitter.com/cdlds_ashoka" title="X" target="_blank">X</a>
+                    <a href="https://www.linkedin.com/company/scdlds-ashoka/" title="LinkedIn" target="_blank">in</a>
+                    <a href="https://www.youtube.com/@cdlds_ashoka" title="YouTube" target="_blank">▶</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exSPLOre 2025 - SCDLDS Ashoka University</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Inria Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #ffffff;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a { color: #005a9c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .site-header { padding: 10px 0; border-bottom: 1px solid #e0e0e0; background-color: #ffffff; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .site-logo img { max-height: 60px; width: auto; }
+        .main-nav ul { margin: 0; padding: 0; list-style: none; display: flex; }
+        .main-nav li { margin-left: 25px; }
+        .main-nav a { text-decoration: none; color: #333; font-weight: 700; font-size: 1.1em; }
+        
+        .main-content { padding: 50px 0; }
+
+        .event-page-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .event-header h1 {
+            font-size: 2.6em;
+            font-weight: 700;
+            color: #003366;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .event-meta-section {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .event-meta-image img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #e9ecef;
+        }
+
+        .event-meta-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+        }
+
+        .meta-item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            align-items: start;
+        }
+
+        .meta-item-label {
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .meta-item-value {
+            color: #555;
+        }
+        .meta-item-value ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .event-body {
+            display: flex;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .event-main-column {
+            flex: 3;
+        }
+
+        .event-sidebar {
+            flex: 1;
+        }
+        
+        .event-main-column h2 {
+            font-size: 1.8em;
+            color: #8a1e1e;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .speakers-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            columns: 2;
+            gap: 20px;
+        }
+
+        .speakers-list li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .sidebar-widget {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        
+        .sidebar-widget h3 {
+            font-size: 1.3em;
+            color: #003366;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-widget li {
+            margin-bottom: 12px;
+        }
+        
+        .sidebar-widget a {
+            font-weight: 700;
+        }
+        
+        .sidebar-widget .info-item {
+            font-weight: 700;
+            color: #8a1e1e;
+        }
+
+        .site-footer { background-color: #222; color: #f0f0f0; padding: 50px 0; font-size: 0.9em; margin-top: 50px; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-column h4{font-size:1.2em;font-weight:700;color:#fff;margin-top:0;margin-bottom:20px}.footer-column h4 a{color:#fff;text-decoration:none}.footer-column ul{list-style:none;padding:0;margin:0}.footer-column li{margin-bottom:10px}.footer-column a{color:#ccc;transition:color .2s}.footer-column a:hover{color:#fff}.footer-social-links{display:flex;gap:15px}.footer-social-links a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background-color:#444;color:#fff;border-radius:50%;font-weight:700;font-size:1.1em;transition:background-color .2s;text-decoration:none}.footer-social-links a:hover{background-color:#8a1e1e;text-decoration:none}
+        
+        @media (max-width: 992px) {
+            .main-nav { display: none; }
+            .event-body { flex-direction: column; }
+            .speakers-list { columns: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; }
+            .event-meta-section { flex-direction: column; }
+            .event-meta-image img { width: 100%; height: auto; }
+            .meta-item { grid-template-columns: 1fr; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo"><img src="logo.png" alt="SCDLDS - Ashoka University"></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="#people">People</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="events.html">News & Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="event-header">
+                <p class="event-page-title">Workshop</p>
+                <h1>Explorations in Statistics, Probability, Learning and Optimization Research</h1>
+            </div>
+
+            <div class="event-meta-section">
+                <div class="event-meta-image">
+                    <img src="exsplore2025.png" alt="exSPLOre 2025 Workshop">
+                </div>
+                <div class="event-meta-details">
+                    <div class="meta-item">
+                        <span class="meta-item-label">Date & Time</span>
+                        <span class="meta-item-value">14th January 2025 to 18th January 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-item-label">Venue</span>
+                        <span class="meta-item-value">Takshila | AC-02 | LR-007, Ashoka University</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-item-label">Organizer</span>
+                        <span class="meta-item-value">Centre for Data, Learning and Decision Sciences, Ashoka University</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-item-label">Organising Committee</span>
+                        <span class="meta-item-value">
+                            <ul>
+                                <li>Vivek Borkar (IIT Bombay)</li>
+                                <li>Sandeep Juneja (Ashoka University)</li>
+                                <li>Praneeth Netrapalli (Google DeepMind)</li>
+                                <li>Sumegh P (Ashoka University)</li>
+                                <li>KS Mallikarjuna Rao (IIT Bombay)</li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-body">
+                <div class="event-main-column">
+                    <p>The Safexpress Centre for Data, Learning and Decision Sciences (CDLDS) at Ashoka University is delighted to announce exSPLOre 2025, a five-day workshop from January 14-18, 2025, exploring the evolving and exciting areas of quantitative research underpinning the developments in data science, machine learning and artificial intelligence. The workshop begins with two days of basic tutorials for graduates and advanced undergraduates, offering 3-hour sessions each on the basics of probability, learning, and optimization, led by leading experts. The following three days will comprise a research workshop, with talks by leaders in the field. The program includes a poster session for PhD students.</p>
+                    
+                    <h2>Speakers Include</h2>
+                    <ul class="speakers-list">
+                        <li>Siddhartha Banerjee (Cornell University)</li>
+                        <li>Siddharth Barman (IISc)</li>
+                        <li>Achal Bassamboo (Northwestern University)</li>
+                        <li>Sanjay Bhatt (Tata Consultancy Services)</li>
+                        <li>Vivek Borkar (IIT Bombay)</li>
+                        <li>Rama Cont (University of Oxford)</li>
+                        <li>Manish Gupta (Google DeepMind)</li>
+                        <li>Peter Glynn (Stanford University)</li>
+                        <li>Varun Gupta (Northwestern University)</li>
+                        <li>Srikanth Iyer (IISc)</li>
+                        <li>Garud Iyengar (Columbia University)</li>
+                        <li>Ruta Mehta (University of Illinois at Urbana-Champaign)</li>
+                        <li>Jayakrishnan Nair (IIT Bombay)</li>
+                        <li>Dheeraj Nagaraj (Google DeepMind)</li>
+                        <li>Praneeth Netrapalli (Google DeepMind)</li>
+                        <li>Balaji Prabhakar (Stanford University)</li>
+                        <li>Alexandre Proutiere (KTH Royal Institute of Technology)</li>
+                        <li>Ankur Puri (McKinsey)</li>
+                        <li>Ketan Rajawat (IIT Kanpur)</li>
+                        <li>Sunita Sarawagi (IIT Bombay)</li>
+                        <li>Devavrat Shah (Massachusetts Institute of Technology)</li>
+                        <li>Ronnie Sircar (Princeton University)</li>
+                        <li>Rohit Vaish (IIT Delhi)</li>
+                        <li>Rahul Vaze (TIFR)</li>
+                        <li>Vijay Vazirani (University of California, Irvine)</li>
+                    </ul>
+                </div>
+                <aside class="event-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Event Information</h3>
+                        <ul>
+                            <li><a href="#">Workshop Schedule: Download</a></li>
+                            <li>Registration: <span class="info-item">Closed</span></li>
+                            <li>Contact: <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column"><h4><a href="#about">About SCDLDS</a></h4></div>
+            <div class="footer-column"><h4>Contact Us</h4><ul><li><strong>Email:</strong> <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li><li><strong>Campus:</strong> Plot No. 2, Rajiv Gandhi Education City, Sonepat, Haryana-131029</li><li><strong>Delhi Office:</strong> Plot no.222, Second floor, Okhla Industrial Estate, Phase III, New Delhi-110020</li></ul></div>
+            <div class="footer-column"><h4>Quick Links</h4><ul><li><a href="#">Ashoka University Home</a></li><li><a href="#">Research Opportunities</a></li><li><a href="#">Courses</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+            <div class="footer-column"><h4>Follow Us</h4><div class="footer-social-links"><a href="https://twitter.com/cdlds_ashoka" title="X" target="_blank">X</a><a href="https://www.linkedin.com/company/scdlds-ashoka/" title="LinkedIn" target="_blank">in</a><a href="https://www.youtube.com/@cdlds_ashoka" title="YouTube" target="_blank">▶</a></div></div>
+        </div>
+    </footer>
+</body>
+</html>
