@@ -107,6 +107,7 @@
         .project-content-area {
             display: flex;
             gap: 50px;
+            margin-bottom: 40px;
         }
         
         .project-main-text {
@@ -139,6 +140,70 @@
             font-size: 1.1em;
             font-weight: 700;
             color: #8a1e1e;
+        }
+
+        /* Publications Section Styles */
+        .publications-section {
+            margin-top: 20px;
+            padding-top: 0;
+        }
+
+        .section-subtitle {
+            font-size: 2em;
+            color: #003366;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .pub-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pub-item {
+            background: #fdfdfd;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #003366;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .pub-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .pub-tag {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pub-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .pub-authors {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .pub-venue {
+            font-style: italic;
+            color: #666;
+            font-size: 0.95em;
         }
 
         /* Expandable Section Styles */
@@ -185,7 +250,7 @@
             margin-bottom: 8px;
         }
 
-        /* --- STYLES FOR THE FOOTER --- */
+        /* Footer Styles */
         .site-footer {
             background-color: #222;
             color: #f0f0f0;
@@ -253,18 +318,17 @@
             background-color: #8a1e1e;
             text-decoration: none;
         }
-        /* --- END OF FOOTER STYLES --- */
 
         /* Responsive Design */
         @media (max-width: 992px) {
             .main-nav { display: none; }
             .project-content-area {
                 flex-direction: column;
+                gap: 30px;
             }
             .project-sidebar {
                 border-left: none;
                 padding-left: 0;
-                margin-top: 30px;
                 border-top: 1px solid #e0e0e0;
                 padding-top: 30px;
             }
@@ -287,12 +351,12 @@
             </a>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="index.html#about">About</a></li>
                     <li><a href="research.html">Research</a></li>
-                    <li><a href="#people">People</a></li>
+                    <li><a href="people.html">People</a></li>
                     <li><a href="#academics">Academics</a></li>
-                    <li><a href="#news">News & Events</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="events.html">News & Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -329,6 +393,18 @@
                         </nav>
                     </aside>
                 </div>
+
+                <section class="publications-section">
+                    <h2 class="section-subtitle">Related Publications</h2>
+                    <ul class="pub-list">
+                        <li class="pub-item">
+                            <span class="pub-tag">SUBMITTED</span>
+                            <span class="pub-title">Portfolio optimization using anomalies: A deep learning approach</span>
+                            <div class="pub-authors">Foujdar, A., Juneja, S., Kumar, A., Prabhala, N., & Wagle, S.</div>
+                            <div class="pub-venue">Submitted, 2025</div>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </div>
     </main>
@@ -337,6 +413,7 @@
         <div class="container footer-container">
             <div class="footer-column">
                 <h4><a href="#about">About SCDLDS</a></h4>
+                <p>The Safexpress Centre for Data, Learning and Decision Sciences at Ashoka University focuses on cutting-edge research in ML, optimization, and their applications.</p>
             </div>
             <div class="footer-column">
                 <h4>Contact Us</h4>
@@ -350,7 +427,7 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#">Ashoka University Home</a></li>
-                    <li><a href="#">Research Opportunities</a></li>
+                    <li><a href="research.html">Research Opportunities</a></li>
                     <li><a href="#">Courses</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
