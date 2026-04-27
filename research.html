@@ -92,6 +92,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
+            margin-bottom: 60px;
         }
         
         /* Styling for the link wrapping the card */
@@ -170,6 +171,36 @@
             border-radius: 12px;
             margin-right: 5px;
             margin-bottom: 5px;
+        }
+
+        /* Publications Button Section */
+        .publications-cta {
+            text-align: center;
+            padding: 40px 0 60px;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        .btn-publications {
+            display: inline-block;
+            background-color: #8a1e1e;
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-publications:hover {
+            background-color: #6d1717;
+            text-decoration: none;
+            transform: scale(1.05);
+            color: #fff;
         }
 
         /* --- STYLES FOR THE FOOTER --- */
@@ -362,7 +393,7 @@
                     </div>
                 </a>
 
-                <!-- Card 6: Darjeeling Revival (Clickable) -->
+                <!-- Card 6: Darjeeling Revival -->
                 <a href="project-darjeeling.html" class="project-card-link">
                     <div class="project-card">
                         <img class="card-image" src="alt-carbon.png" alt="Darjeeling Revival Project">
@@ -395,6 +426,11 @@
                 </a>
 
             </div>
+
+            <!-- Publications Section -->
+            <section class="publications-cta">
+                <a href="publications.html" class="btn-publications">View All Publications</a>
+            </section>
         </div>
     </main>
 
