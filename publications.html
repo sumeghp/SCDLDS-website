@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - SCDLDS Ashoka University</title>
+    <style>
+        /* Import Inria Sans font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+
+        /* Base Styles */
+        body {
+            font-family: 'Inria Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #005a9c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #ffffff;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+            flex-grow: 1;
+        }
+
+        .page-title {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #003366;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 40px;
+        }
+
+        /* Year Sections */
+        .year-section {
+            margin-bottom: 50px;
+        }
+
+        .year-title {
+            font-size: 2em;
+            color: #8a1e1e;
+            border-bottom: 2px solid #8a1e1e;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        /* Publication List Styling */
+        .pub-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pub-item {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #003366;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .pub-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .pub-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .pub-authors {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .pub-venue {
+            font-style: italic;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .pub-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 700;
+            color: #8a1e1e;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pub-tag {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #222;
+            color: #f0f0f0;
+            padding: 50px 0;
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #cccccc;
+        }
+
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: #ffffff;
+            border-radius: 50%;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .footer-social-links a:hover {
+            background-color: #8a1e1e;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title { font-size: 2em; }
+            .year-title { font-size: 1.6em; }
+            .main-nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="site-logo">
+                <img src="logo.png" alt="SCDLDS Ashoka University">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="events.html">News & Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Scholarly Publications</h1>
+
+            <!-- 2025 Publications -->
+            <section class="year-section">
+                <h2 class="year-title">2025</h2>
+                <ul class="pub-list">
+                    <li class="pub-item">
+                        <span class="pub-tag">FORTHCOMING</span>
+                        <span class="pub-title">Finetuning a Neural Weather Model to India Rainfall</span>
+                        <div class="pub-authors">Saptarish Dhanuka, Manmeet Singh, Sandeep Juneja</div>
+                        <div class="pub-venue">Accepted to ACM IKDD CODS 2025, 13th International Conference on Data Science (AI for Sciences Track)</div>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-tag">FORTHCOMING</span>
+                        <span class="pub-title">Game of arrivals to a two queue network with heterogeneous customer routes</span>
+                        <div class="pub-authors">Bandyopadhyay, A. and Juneja S.</div>
+                        <div class="pub-venue">To appear in PERFORMANCE 2025</div>
+                        <a href="#" class="pub-link">[Link]</a>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-tag">FORTHCOMING</span>
+                        <span class="pub-title">Data-driven estimation of tail probabilities under varying distributional assumptions</span>
+                        <div class="pub-authors">Ahn, D., Juneja S., Pagare, T. and Shreyas, S.</div>
+                        <div class="pub-venue">To appear in Winter Simulation Conference (WSC), IEEE, 2025</div>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-tag">WORKSHOP</span>
+                        <span class="pub-title">Optimal Algorithms for Bandit Learning in Matching Markets</span>
+                        <div class="pub-authors">Pagare, T., Bandyopadhyay, A. and Juneja, S.</div>
+                        <div class="pub-venue">To appear in Dynamics at the Frontiers of Optimization, Sampling, and Games - NeurIPS 2025 Workshop</div>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-tag">SUBMITTED</span>
+                        <span class="pub-title">Generating DDPM-based Samples from Exponentially Tilted Distributions</span>
+                        <div class="pub-authors">Mandal, H., Gupta, D., Gupta, R., Iyer, S.R., Bandyopadhyay, A., Bassamboo, A., Gupta, V., Juneja, S.</div>
+                        <div class="pub-venue">Submitted, 2025</div>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-tag">SUBMITTED</span>
+                        <span class="pub-title">Portfolio optimization using anomalies: A deep learning approach</span>
+                        <div class="pub-authors">Foujdar, A., Juneja, S., Kumar, A., Prabhala, N., & Wagle, S.</div>
+                        <div class="pub-venue">Submitted, 2025</div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 2024 Publications -->
+            <section class="year-section">
+                <h2 class="year-title">2024</h2>
+                <ul class="pub-list">
+                    <li class="pub-item">
+                        <span class="pub-title">Asymptotically Optimal and Computationally Efficient Average Treatment Effect Estimation in A/B testing</span>
+                        <div class="pub-authors">Deep, Vikas, Achal Bassamboo, and Sandeep Kumar Juneja</div>
+                        <div class="pub-venue">Forty-first International Conference on Machine Learning (ICML)</div>
+                        <a href="#" class="pub-link">[Link]</a>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-title">A Deep Learning Approach for Rare Event Simulation in Diffusion Processes</span>
+                        <div class="pub-authors">Hult, Henrik, et al.</div>
+                        <div class="pub-venue">2024 Winter Simulation Conference (WSC), IEEE, 2024</div>
+                        <a href="#" class="pub-link">[Link]</a>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-title">Selecting the Safest Design in Rare Event Settings</span>
+                        <div class="pub-authors">Bhattacharjee, Anirban, and Sandeep Juneja</div>
+                        <div class="pub-venue">2024 Winter Simulation Conference (WSC), IEEE, 2024</div>
+                        <a href="#" class="pub-link">[Link]</a>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-title">Optimal Top-Two Method for Best Arm Identification and Fluid Analysis</span>
+                        <div class="pub-authors">Bandyopadhyay, Agniv, et al.</div>
+                        <div class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS), vol. 37, 2024</div>
+                        <a href="#" class="pub-link">[Link]</a>
+                    </li>
+                    <li class="pub-item">
+                        <span class="pub-title">Comparing Skill of Historical Rainfall Data-Based Monsoon Rainfall Prediction in India with NCEP-NWP Forecasts</span>
+                        <div class="pub-authors">Narula, A., Jain, A., Batra, J., & Juneja, S.</div>
+                        <div class="pub-venue">Published, 2024</div>
+                        <a href="#" class="pub-link">[Link]</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <h4>About SCDLDS</h4>
+                <p>The Safexpress Centre for Data, Learning and Decision Sciences at Ashoka University focuses on cutting-edge research in ML, optimization, and their applications.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li>
+                    <li><strong>Campus:</strong> Plot No. 2, Rajiv Gandhi Education City, Sonepat-131029</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="research.html">Research Projects</a></li>
+                    <li><a href="people.html">People</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="footer-social-links">
+                    <a href="#">X</a>
+                    <a href="#">in</a>
+                    <a href="#">▶</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
