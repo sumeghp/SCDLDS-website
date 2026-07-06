@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - SCDLDS Ashoka University</title>
+    <style>
+        /* Import Inria Sans & Lora fonts from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Lora:wght@400;700&display=swap');
+
+        /* Base Styles */
+        body {
+            font-family: 'Inria Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #005a9c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background-color: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            color: #333;
+            font-weight: 400;
+            font-size: 16px;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: #005a9c;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* Main Section & Page Title */
+        main {
+            flex-grow: 1;
+            padding: 50px 0;
+        }
+
+        .page-title {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 38px;
+            color: #111;
+            margin-top: 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Horizontal Slabs (Accordion) */
+        .slab-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .people-slab {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .people-slab:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* Slab Header Trigger Button */
+        .slab-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 22px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: left;
+            outline: none;
+        }
+
+        .slab-trigger h2 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 22px;
+            color: #005a9c;
+            margin: 0;
+        }
+
+        .slab-icon {
+            font-size: 14px;
+            color: #005a9c;
+            transition: transform 0.3s ease;
+        }
+
+        /* Expanded State Rotation */
+        .people-slab.active .slab-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Hidden Content Container */
+        .slab-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease;
+            background-color: #fdfdfd;
+            border-top: 0 solid #e0e0e0;
+        }
+
+        /* Active expanded state setup */
+        .people-slab.active .slab-content {
+            border-top: 1px solid #e0e0e0;
+            padding: 40px 25px;
+            max-height: 5000px;
+            overflow: visible;
+        }
+
+        /* Profiles Grid Layout */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 40px 25px;
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .profile-img-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #e9ecef;
+            border: 1px solid #e0e0e0;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #111;
+            margin: 0 0 4px 0;
+        }
+
+        .profile-role {
+            font-size: 13.5px;
+            color: #005a9c;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+        }
+
+        .profile-inst {
+            font-size: 12.5px;
+            color: #666;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 40px 0;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-column h4 {
+            font-family: 'Lora', Georgia, serif;
+            color: #ffffff;
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .footer-column h4 a {
+            color: #ffffff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        .footer-column ul li a {
+            color: #bbb;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ffffff;
+        }
+
+        .footer-social-links a {
+            color: #ffffff;
+            background-color: #222;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .footer-social-links a:hover {
+            background-color: #005a9c;
+            text-decoration: none;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .profile-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <a href="index.html"><img src="logo.jpg" alt="SCDLDS Logo"></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="people.html" class="active">People</a></li>
+                    <li><a href="news.html">News</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">People</h1>
+
+            <div class="slab-container">
+
+                <div class="people-slab">
+                    <button class="slab-trigger" onclick="toggleSlab(this)">
+                        <h2>SCDLDS Advisory Council</h2>
+                        <span class="slab-icon">▼</span>
+                    </button>
+                    <div class="slab-content">
+                        <div class="profile-grid">
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Partha Pratim Chakraborty</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">IIT Kharagpur</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Santanu Chaudhury</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Bhaskar Dutta</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Paul Glasserman</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">Columbia Business School</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Peter W. Glynn</h3>
+                                <p class="profile-role">Chair of the Advisory Board</p>
+                                <p class="profile-inst">Stanford University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Manish Gupta</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">Google DeepMind</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Garud N. Iyengar</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">Columbia University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Rubal Jain</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">Safexpress Pvt. Ltd.</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Sunita Sarawagi</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">IIT Bombay</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Tapio Schneider</h3>
+                                <p class="profile-role">Centre Mentor</p>
+                                <p class="profile-inst">California Institute of Technology</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Devavrat Shah</h3>
+                                <p class="profile-role">Council Member</p>
+                                <p class="profile-inst">MIT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="people-slab">
+                    <button class="slab-trigger" onclick="toggleSlab(this)">
+                        <h2>Faculty Members</h2>
+                        <span class="slab-icon">▼</span>
+                    </button>
+                    <div class="slab-content">
+                        <div class="profile-grid">
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Meghna Agarwala</h3>
+                                <p class="profile-role">Assistant Professor</p>
+                                <p class="profile-inst">Environmental Studies, Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Anustubh Agnihotri</h3>
+                                <p class="profile-role">Assistant Professor</p>
+                                <p class="profile-inst">Political Science, Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Parush Arora</h3>
+                                <p class="profile-role">Assistant Professor</p>
+                                <p class="profile-inst">Economics, Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Dipankar Bhattacharya</h3>
+                                <p class="profile-role">Head of the Department</p>
+                                <p class="profile-inst">Physics, Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Bhaskar Dutta</h3>
+                                <p class="profile-role">Distinguished Professor</p>
+                                <p class="profile-inst">Economics, Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Sandeep Juneja</h3>
+                                <p class="profile-role">Director, SCDLDS</p>
+                                <p class="profile-inst">Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Kumarjit Saha</h3>
+                                <p class="profile-role">Faculty Member</p>
+                                <p class="profile-inst">Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Anirban Sen</h3>
+                                <p class="profile-role">Assistant Professor</p>
+                                <p class="profile-inst">Computer Science, Ashoka University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Aalok Thakkar</h3>
+                                <p class="profile-role">Assistant Professor</p>
+                                <p class="profile-inst">Computer Science, Ashoka University</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="people-slab">
+                    <button class="slab-trigger" onclick="toggleSlab(this)">
+                        <h2>Visitors</h2>
+                        <span class="slab-icon">▼</span>
+                    </button>
+                    <div class="slab-content">
+                        <div class="profile-grid">
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Achal Bassamboo</h3>
+                                <p class="profile-role">Professor</p>
+                                <p class="profile-inst">Kellogg School of Management, NWU</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Varun Gupta</h3>
+                                <p class="profile-role">Visiting Associate Professor</p>
+                                <p class="profile-inst">Computer Science, NWU</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Parthasarathi Mukhopadhyay</h3>
+                                <p class="profile-role">Visiting Faculty</p>
+                                <p class="profile-inst">Earth & Environmental Sciences, IISER Berhampur</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Madhavan Nair Rajeevan</h3>
+                                <p class="profile-role">Vice Chancellor</p>
+                                <p class="profile-inst">Atria University (Former Secretary, MoES)</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Manmeet Singh</h3>
+                                <p class="profile-role">Assistant Professor</p>
+                                <p class="profile-inst">Western Kentucky University</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Rohit Vaish</h3>
+                                <p class="profile-role">Assistant Professor</p>
+                                <p class="profile-inst">CSE, IIT Delhi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="people-slab">
+                    <button class="slab-trigger" onclick="toggleSlab(this)">
+                        <h2>Post-doc Fellows</h2>
+                        <span class="slab-icon">▼</span>
+                    </button>
+                    <div class="slab-content">
+                        <div class="profile-grid">
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Sarvesh Iyer</h3>
+                                <p class="profile-role">Post-doc Fellow</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="people-slab">
+                    <button class="slab-trigger" onclick="toggleSlab(this)">
+                        <h2>Research Scholars</h2>
+                        <span class="slab-icon">▼</span>
+                    </button>
+                    <div class="slab-content">
+                        <div class="profile-grid">
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Bhavesh Neekhra</h3>
+                                <p class="profile-role">Research Scholar</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Sai Rakshit Somasundaram</h3>
+                                <p class="profile-role">Research Scholar</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="people-slab">
+                    <button class="slab-trigger" onclick="toggleSlab(this)">
+                        <h2>Research Associates</h2>
+                        <span class="slab-icon">▼</span>
+                    </button>
+                    <div class="slab-content">
+                        <div class="profile-grid">
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Gaurang Kumaar Baishya</h3>
+                                <p class="profile-role">Research Associate</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Kushal Bhowmick</h3>
+                                <p class="profile-role">Research Associate</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Saptarishi Dhanuka</h3>
+                                <p class="profile-role">Research Associate</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Atish Kumar</h3>
+                                <p class="profile-role">Research Associate</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Ojas Kumar</h3>
+                                <p class="profile-role">Research Associate</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Mihir More</h3>
+                                <p class="profile-role">Research Associate</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="people-slab">
+                    <button class="slab-trigger" onclick="toggleSlab(this)">
+                        <h2>Students and Interns</h2>
+                        <span class="slab-icon">▼</span>
+                    </button>
+                    <div class="slab-content">
+                        <div class="profile-grid">
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Amartya Agarwal</h3><p class="profile-inst">Ashoka University</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Anirudh Reddy Avireddy</h3><p class="profile-inst">Shiv Nadar University</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Samyak Baid</h3><p class="profile-inst">Ashoka University</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Bharat</h3><p class="profile-inst">IISER Pune</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Sreejit Dey</h3><p class="profile-inst">Ashoka University</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Aman Foujdar</h3><p class="profile-inst">Student Intern</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Dhruman Gupta</h3><p class="profile-inst">Student Intern</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Rushil Gupta</h3><p class="profile-inst">Student Intern</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Tanav Gupta</h3><p class="profile-inst">IIT Delhi</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Yash Khaitan</h3><p class="profile-inst">Ashoka University</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Ayush Raj</h3><p class="profile-inst">IISER Pune</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Abhik Rana</h3><p class="profile-inst">ISI Kolkata</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Abhiroop Sarkar</h3><p class="profile-inst">Ashoka University</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Shivanshi Singh</h3><p class="profile-inst">Ashoka University</p></div>
+                            <div class="profile-card"><div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div><h3 class="profile-name">Sidharth Wagle</h3><p class="profile-inst">Student Intern</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="people-slab">
+                    <button class="slab-trigger" onclick="toggleSlab(this)">
+                        <h2>Administration</h2>
+                        <span class="slab-icon">▼</span>
+                    </button>
+                    <div class="slab-content">
+                        <div class="profile-grid">
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Priya</h3>
+                                <p class="profile-role">Administrative Staff</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                            <div class="profile-card">
+                                <div class="profile-img-container"><img src="https://via.placeholder.com/150" alt="Profile Picture"></div>
+                                <h3 class="profile-name">Sumegh</h3>
+                                <p class="profile-role">Administrative Staff</p>
+                                <p class="profile-inst">SCDLDS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <h4><a href="#about">About SCDLDS</a></h4>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:ashoka-cdlds@ashoka.edu.in">ashoka-cdlds@ashoka.edu.in</a></li>
+                    <li><strong>Campus:</strong> Plot No. 2, Sonepat, Haryana</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://www.ashoka.edu.in/" target="_blank">Ashoka University Home</a></li>
+                    <li><a href="#">Research Areas</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="footer-social-links">
+                    <a href="https://twitter.com/cdlds_ashoka" title="X" target="_blank">X</a>
+                    <a href="https://www.linkedin.com/company/scdlds-ashoka/" title="LinkedIn" target="_blank">in</a>
+                    <a href="https://www.youtube.com/@cdlds_ashoka" title="YouTube" target="_blank">▶</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSlab(button) {
+            const parentSlab = button.parentElement;
+            parentSlab.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
